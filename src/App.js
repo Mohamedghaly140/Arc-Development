@@ -1,20 +1,28 @@
 import React from 'react';
-import Header from './components/ui/Header';
+import { ThemeProvider } from '@material-ui/styles';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+// Components Import
+import theme from './components/ui/Themes/Theme';
+import Header from './components/ui/Header/Header';
 
 function App() {
   return (
-    <div className="App">
-      <Header />
-      <p>hello</p>
-      {[...new Array(20)]
-        .map(
-          () => `Cras mattis consectetur purus sit amet fermentum.
-Cras justo odio, dapibus ac facilisis in, egestas eget quam.
-Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
-Praesent commodo cursus magna, vel scelerisque nisl consectetur et.`
-        )
-        .join('\n')}
-    </div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <Header />
+        <Switch>
+          <Route exact path='/' component={() => <div>Home</div>} />
+          <Route path='/services' component={() => <div>services</div>} />
+          <Route path='/customsoftware' component={() => <div>customsoftware</div>} />
+          <Route path='/mobileapps' component={() => <div>mobileapps</div>} />
+          <Route path='/websites' component={() => <div>websites</div>} />
+          <Route path='/revolution' component={() => <div>revolution</div>} />
+          <Route path='/about' component={() => <div>about</div>} />
+          <Route path='/contact' component={() => <div>contact</div>} />
+          <Route path='/estimate' component={() => <div>estimate</div>} />
+        </Switch>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
