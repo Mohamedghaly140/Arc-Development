@@ -9,7 +9,10 @@ import {
   Menu,
   MenuItem,
   useMediaQuery,
+  SwipeableDrawer,
+  IconButton,
 } from '@material-ui/core';
+import { Menu as MenuIcon } from '@material-ui/icons';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import ElevationScroll from './ElevationScroll';
 // Components Import
@@ -62,34 +65,48 @@ const useStyles = makeStyles(theme => ({
       opacity: 1,
     },
   },
+  drawerIconContainer: {
+    marginLeft: 'auto',
+    '&:hover': {
+      backgroundColor: 'transparent',
+    },
+  },
+  drawerIcon: {
+    width: '40px',
+    height: '40px',
+  },
 }));
 
 const Header = () => {
   const classes = useStyles();
   const theme = useTheme();
+  const iOS = process.browser && /iPad|iPhone|iPod/.test(navigator.userAgent);
   const matches = useMediaQuery(theme.breakpoints.down('md'));
   const [value, setValue] = useState(0);
   // Ghange handler for selected tab
-  const tabChangeHandler = (event, value) => setValue(value);
+  const tabChangeHandler = (event, newValue) => setValue(newValue);
 
   // Menu State
   const [anchorEl, setAnchorEl] = useState(null);
-  const [open, setOpen] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
   const [selectedIndex, setSelectedIndex] = useState(0);
+
+  // Drawer State
+  const [openDrawer, setOpenDrawer] = useState(false);
 
   const menuClickHandler = event => {
     setAnchorEl(event.currentTarget);
-    setOpen(true);
+    setOpenMenu(true);
   };
 
   const menuCloseHandler = event => {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
   };
 
   const menuItemClickHandler = (event, index) => {
     setAnchorEl(null);
-    setOpen(false);
+    setOpenMenu(false);
     setSelectedIndex(index);
   };
 
@@ -203,7 +220,7 @@ const Header = () => {
       </Button>
       <Menu
         id="simple-menu"
-        open={open}
+        open={openMenu}
         anchorEl={anchorEl}
         onClose={menuCloseHandler}
         MenuListProps={{ onMouseLeave: menuCloseHandler }}
@@ -229,6 +246,27 @@ const Header = () => {
     </Fragment>
   );
 
+  const drawer = (
+    <Fragment>
+      <SwipeableDrawer
+        disableBackdropTransition={!iOS}
+        disableDiscovery={iOS}
+        open={openDrawer}
+        onOpen={() => setOpenDrawer(true)}
+        onClose={() => setOpenDrawer(false)}
+      >
+        Example
+      </SwipeableDrawer>
+      <IconButton
+        disableRipple
+        className={classes.drawerIconContainer}
+        onClick={() => setOpenDrawer(!openDrawer)}
+      >
+        <MenuIcon className={classes.drawerIcon} />
+      </IconButton>
+    </Fragment>
+  );
+
   return (
     <Fragment>
       <ElevationScroll>
@@ -243,7 +281,7 @@ const Header = () => {
             >
               <img src={logo} alt="company logo" className={classes.logo} />
             </Button>
-            {matches ? null : tabs}
+            {matches ? drawer : tabs}
           </Toolbar>
         </AppBar>
       </ElevationScroll>
