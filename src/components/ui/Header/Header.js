@@ -19,9 +19,15 @@ const useStyles = makeStyles(theme => ({
   toolbarMargin: {
     ...theme.mixins.toolbar,
     marginBottom: '1.5em',
+    [theme.breakpoints.down('md')]: {
+      marginBottom: '0.75em',
+    },
   },
   logo: {
     height: '6em',
+    [theme.breakpoints.down('md')]: {
+      height: '5em',
+    },
   },
   logoContainer: {
     padding: 0,
@@ -206,6 +212,7 @@ const Header = () => {
       >
         {menuOptions.map((option, i) => (
           <MenuItem
+            key={i}
             component={Link}
             to={option.link}
             classes={{ root: classes.menuItem }}
