@@ -34,8 +34,9 @@ const LandingPage = () => {
                 <Button variant="contained">Free Estimate</Button>
               </Grid>
               <Grid item>
-                <Button variant="outlined">Learn More</Button>
-                <ButtonArrow width={15} height={15} fill="red" />
+                <Button variant="outlined">
+                  Learn More <ButtonArrow width={15} height={15} fill="red" />
+                </Button>
               </Grid>
             </Grid>
           </Grid>
