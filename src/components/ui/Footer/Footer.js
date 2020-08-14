@@ -104,7 +104,7 @@ const Footer = props => {
                   setSelectedIndex(2);
                 }}
               >
-                Mobile App Development
+                IOS/Android App Development
               </Grid>
               <Grid
                 item

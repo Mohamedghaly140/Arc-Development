@@ -1,10 +1,20 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import { makeStyles } from '@material-ui/styles';
-import { Grid, Button, Typography } from '@material-ui/core';
+import { makeStyles, useTheme } from '@material-ui/styles';
+import {
+  Grid,
+  Button,
+  Typography,
+  Container,
+  useMediaQuery,
+} from '@material-ui/core';
 
 import animationData from '../../animations/landinganimation/data';
 import ButtonArrow from '../ui/ButtonArrow/ButtonArrow';
+
+import customSoftwareIcon from '../../assets/Custom Software Icon.svg';
+import mobileAppsIcon from '../../assets/mobileIcon.svg';
+import websiteIcon from '../../assets/websiteIcon.svg';
 
 const useStyles = makeStyles(theme => ({
   intro: {
@@ -43,22 +53,31 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: theme.palette.secondary.light,
     },
   },
-  learnMoreBtn: {
-    borderColor: theme.palette.common.blue,
-    color: theme.palette.common.blue,
-    borderWidth: 2,
-    textTransform: 'none',
-    borderRadius: 50,
-    fontFamily: 'Raleway',
-    fontWeight: 'bold',
+  learnMoreBtnHero: {
+    ...theme.typography.learnButton,
     fontSize: '0.9rem',
     width: 145,
     height: 45,
+  },
+  specialText: {
+    color: theme.palette.common.orange,
+    fontFamily: 'Pacifico',
+  },
+  learnMoreBtn: {
+    ...theme.typography.learnButton,
+    fontSize: '0.8rem',
+    height: 35,
+  },
+  servicesBlockItem: {
+    marginTop: '1.5em',
+    marginBottom: '1.5em',
   },
 }));
 
 const LandingPage = () => {
   const classes = useStyles();
+  const theme = useTheme();
+  const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
 
   const defaultOptions = {
     loop: true,
@@ -97,7 +116,7 @@ const LandingPage = () => {
                 </Button>
               </Grid>
               <Grid item>
-                <Button className={classes.learnMoreBtn} variant="outlined">
+                <Button className={classes.learnMoreBtnHero} variant="outlined">
                   <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                   <ButtonArrow width={15} height={15} fill="red" />
                 </Button>
@@ -108,6 +127,102 @@ const LandingPage = () => {
             <Lottie options={defaultOptions} height={'100%'} width={'100%'} />
           </Grid>
         </Grid>
+      </Grid>
+      {/* ========== Services Block ========== */}
+      <Grid item className={classes.servicesBlockItem}>
+        <Container>
+          <Grid
+            container
+            direction="row"
+            spacing={2}
+            justify={matchesSM && 'center'}
+            alignItems="center"
+          >
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Custom Software Development
+              </Typography>
+              <Typography variant="subtitle1">
+                Save Energy. Save Time. Save Money.
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom>
+                Complete digital solution, from investigation to{' '}
+                <span className={classes.specialText}>celebration</span>
+              </Typography>
+              <Button className={classes.learnMoreBtn} variant="outlined">
+                <span style={{ marginRight: 10 }}>Learn More</span>{' '}
+                <ButtonArrow width={15} height={15} fill="red" />
+              </Button>
+            </Grid>
+            <Grid item>
+              <img src={customSoftwareIcon} alt="Custom Software Development" />
+            </Grid>
+          </Grid>
+        </Container>
+      </Grid>
+      {/* ========== Services Block ========== */}
+      <Grid item className={classes.servicesBlockItem}>
+        <Container>
+          <Grid
+            container
+            direction="row"
+            spacing={2}
+            justify={matchesSM ? 'center' : 'flex-end'}
+            alignItems="center"
+          >
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                iOS/Android App Development
+              </Typography>
+              <Typography variant="subtitle1">
+                Extend Functionality. Extend Access. Increase Engagment.
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom>
+                Integrate your web experience or create stand alone app
+                {matchesSM && <br />}
+                with either mobile platform.
+              </Typography>
+              <Button className={classes.learnMoreBtn} variant="outlined">
+                <span style={{ marginRight: 10 }}>Learn More</span>{' '}
+                <ButtonArrow width={15} height={15} fill="red" />
+              </Button>
+            </Grid>
+            <Grid item>
+              <img src={mobileAppsIcon} alt="Mobile Apps Development" />
+            </Grid>
+          </Grid>
+        </Container>
+      </Grid>
+      {/* ========== Services Block ========== */}
+      <Grid item className={classes.servicesBlockItem}>
+        <Container>
+          <Grid
+            container
+            direction="row"
+            spacing={2}
+            justify={matchesSM && 'center'}
+            alignItems="center"
+          >
+            <Grid item>
+              <Typography variant="h4" gutterBottom>
+                Website Development
+              </Typography>
+              <Typography variant="subtitle1">
+                Reach More. Discover More. Sell More.
+              </Typography>
+              <Typography variant="subtitle1" gutterBottom>
+                Optimized for Search Engines. Built for Speed.
+              </Typography>
+              <Button className={classes.learnMoreBtn} variant="outlined">
+                <span style={{ marginRight: 10 }}>Learn More</span>{' '}
+                <ButtonArrow width={15} height={15} fill="red" />
+              </Button>
+            </Grid>
+            <Grid item>
+              <img src={websiteIcon} alt="Website Development" />
+            </Grid>
+          </Grid>
+        </Container>
       </Grid>
     </Grid>
   );
