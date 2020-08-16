@@ -15,6 +15,10 @@ import ButtonArrow from '../ui/ButtonArrow/ButtonArrow';
 import customSoftwareIcon from '../../assets/Custom Software Icon.svg';
 import mobileAppsIcon from '../../assets/mobileIcon.svg';
 import websiteIcon from '../../assets/websiteIcon.svg';
+import infoBackground from '../../assets/infoBackground.svg';
+
+// Components
+import RevolutionBlock from './RevolutionBlock/RevolutionBlock';
 
 const useStyles = makeStyles(theme => ({
   intro: {
@@ -72,12 +76,21 @@ const useStyles = makeStyles(theme => ({
     marginTop: '1.5em',
     marginBottom: '1.5em',
   },
+  infoBackground: {
+    height: '80vh',
+    backgroundImage: `url(${infoBackground})`,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundAttachment: 'fixed',
+    backgroundRepeat: 'no-repeat',
+  },
 }));
 
 const LandingPage = () => {
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+  const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
   const defaultOptions = {
     loop: true,
@@ -178,9 +191,8 @@ const LandingPage = () => {
                 Extend Functionality. Extend Access. Increase Engagment.
               </Typography>
               <Typography variant="subtitle1" gutterBottom>
-                Integrate your web experience or create stand alone app
-                {matchesSM && <br />}
-                with either mobile platform.
+                Integrate your web experience or create stand alone app with
+                either mobile platform.
               </Typography>
               <Button className={classes.learnMoreBtn} variant="outlined">
                 <span style={{ marginRight: 10 }}>Learn More</span>{' '}
@@ -220,6 +232,71 @@ const LandingPage = () => {
             </Grid>
             <Grid item>
               <img src={websiteIcon} alt="Website Development" />
+            </Grid>
+          </Grid>
+        </Container>
+      </Grid>
+      {/* ========== The Revolution Block ========== */}
+      <RevolutionBlock />
+      {/* ========== The Information Block ========== */}
+      <Grid item className={classes.infoBackground}>
+        <Container style={{ height: '100%' }}>
+          <Grid
+            container
+            direction="row"
+            justify={matchesXS ? 'center' : 'space-between'}
+            alignItems="center"
+            style={{ height: '100%' }}
+          >
+            <Grid item>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems={matchesXS ? 'center' : 'flex-start'}
+              >
+                <Grid item>
+                  <Typography variant="h2" style={{ color: '#fff' }}>
+                    About Us
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="subtitle2" gutterBottom>
+                    Let's Get Personal
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Button className={classes.learnMoreBtn} variant="outlined">
+                    <span style={{ marginRight: 10 }}>Learn More</span>{' '}
+                    <ButtonArrow width={15} height={15} fill="red" />
+                  </Button>
+                </Grid>
+              </Grid>
+            </Grid>
+            <Grid item>
+              <Grid
+                container
+                direction="column"
+                justify="center"
+                alignItems={matchesXS ? 'center' : 'flex-end'}
+              >
+                <Grid item>
+                  <Typography variant="h2" style={{ color: '#fff' }}>
+                    Contact Us
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Typography variant="subtitle2" gutterBottom>
+                    Say hello
+                  </Typography>
+                </Grid>
+                <Grid item>
+                  <Button className={classes.learnMoreBtn} variant="outlined">
+                    <span style={{ marginRight: 10 }}>Learn More</span>{' '}
+                    <ButtonArrow width={15} height={15} fill="red" />
+                  </Button>
+                </Grid>
+              </Grid>
             </Grid>
           </Grid>
         </Container>
