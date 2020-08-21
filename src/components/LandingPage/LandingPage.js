@@ -19,6 +19,7 @@ import infoBackground from '../../assets/infoBackground.svg';
 
 // Components
 import RevolutionBlock from './RevolutionBlock/RevolutionBlock';
+import CallToAction from '../ui/CallToAction/CallToAction';
 
 const useStyles = makeStyles(theme => ({
   intro: {
@@ -300,6 +301,10 @@ const LandingPage = () => {
             </Grid>
           </Grid>
         </Container>
+      </Grid>
+      <Grid item>
+        {/* ========== Call to Action Block ========== */}
+        <CallToAction />
       </Grid>
     </Grid>
   );
