@@ -181,6 +181,9 @@ const Header = props => {
             }
           }
           break;
+        case '/estimate':
+          setValue(5);
+          break;
         default:
           break;
       }
@@ -215,6 +218,7 @@ const Header = props => {
         className={classes.estimateBtn}
         component={Link}
         to="/estimate"
+        onClick={() => setValue(5)}
       >
         free estimate
       </Button>

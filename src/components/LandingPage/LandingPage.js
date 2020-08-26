@@ -1,5 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
+import { Link } from 'react-router-dom';
 import { makeStyles, useTheme } from '@material-ui/styles';
 import {
   Grid,
@@ -87,7 +88,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const LandingPage = () => {
+const LandingPage = props => {
+  const { setValue, setSelectedIndex } = props;
   const classes = useStyles();
   const theme = useTheme();
   const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
@@ -125,12 +127,24 @@ const LandingPage = () => {
             </Typography>
             <Grid container justify="center" spacing={2}>
               <Grid item>
-                <Button className={classes.estimateBtn} variant="contained">
+                <Button
+                  component={Link}
+                  to="/estimate"
+                  onClick={() => setValue(5)}
+                  className={classes.estimateBtn}
+                  variant="contained"
+                >
                   Free Estimate
                 </Button>
               </Grid>
               <Grid item>
-                <Button className={classes.learnMoreBtnHero} variant="outlined">
+                <Button
+                  component={Link}
+                  to="/revolution"
+                  onClick={() => setValue(2)}
+                  className={classes.learnMoreBtnHero}
+                  variant="outlined"
+                >
                   <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                   <ButtonArrow width={15} height={15} fill="red" />
                 </Button>
@@ -163,7 +177,16 @@ const LandingPage = () => {
                 Complete digital solution, from investigation to{' '}
                 <span className={classes.specialText}>celebration</span>
               </Typography>
-              <Button className={classes.learnMoreBtn} variant="outlined">
+              <Button
+                component={Link}
+                to="/customsoftware"
+                onClick={() => {
+                  setValue(1);
+                  setSelectedIndex(1);
+                }}
+                className={classes.learnMoreBtn}
+                variant="outlined"
+              >
                 <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                 <ButtonArrow width={15} height={15} fill="red" />
               </Button>
@@ -195,7 +218,16 @@ const LandingPage = () => {
                 Integrate your web experience or create stand alone app with
                 either mobile platform.
               </Typography>
-              <Button className={classes.learnMoreBtn} variant="outlined">
+              <Button
+                component={Link}
+                to="/mobileapps"
+                onClick={() => {
+                  setValue(1);
+                  setSelectedIndex(2);
+                }}
+                className={classes.learnMoreBtn}
+                variant="outlined"
+              >
                 <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                 <ButtonArrow width={15} height={15} fill="red" />
               </Button>
@@ -226,7 +258,16 @@ const LandingPage = () => {
               <Typography variant="subtitle1" gutterBottom>
                 Optimized for Search Engines. Built for Speed.
               </Typography>
-              <Button className={classes.learnMoreBtn} variant="outlined">
+              <Button
+                component={Link}
+                to="/websites"
+                onClick={() => {
+                  setValue(1);
+                  setSelectedIndex(3);
+                }}
+                className={classes.learnMoreBtn}
+                variant="outlined"
+              >
                 <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                 <ButtonArrow width={15} height={15} fill="red" />
               </Button>
@@ -238,7 +279,7 @@ const LandingPage = () => {
         </Container>
       </Grid>
       {/* ========== The Revolution Block ========== */}
-      <RevolutionBlock />
+      <RevolutionBlock setValue={setValue} />
       {/* ========== The Information Block ========== */}
       <Grid item className={classes.infoBackground}>
         <Container style={{ height: '100%' }}>
@@ -267,7 +308,13 @@ const LandingPage = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button className={classes.learnMoreBtn} variant="outlined">
+                  <Button
+                    component={Link}
+                    to="/about"
+                    onClick={() => setValue(3)}
+                    className={classes.learnMoreBtn}
+                    variant="outlined"
+                  >
                     <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                     <ButtonArrow width={15} height={15} fill="red" />
                   </Button>
@@ -292,7 +339,13 @@ const LandingPage = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button className={classes.learnMoreBtn} variant="outlined">
+                  <Button
+                    component={Link}
+                    to="/contact"
+                    onClick={() => setValue(4)}
+                    className={classes.learnMoreBtn}
+                    variant="outlined"
+                  >
                     <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                     <ButtonArrow width={15} height={15} fill="red" />
                   </Button>
@@ -304,7 +357,7 @@ const LandingPage = () => {
       </Grid>
       <Grid item>
         {/* ========== Call to Action Block ========== */}
-        <CallToAction />
+        <CallToAction setValue={setValue} />
       </Grid>
     </Grid>
   );

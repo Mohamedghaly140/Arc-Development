@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { makeStyles } from '@material-ui/styles';
 import {
   Container,
@@ -35,7 +36,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const RevolutionBlock = () => {
+const RevolutionBlock = props => {
+  const { setValue } = props;
   const classes = useStyles();
 
   return (
@@ -60,7 +62,13 @@ const RevolutionBlock = () => {
                   </Typography>
                 </Grid>
                 <Grid item>
-                  <Button className={classes.learnMoreBtn} variant="outlined">
+                  <Button
+                    component={Link}
+                    to="/revolution"
+                    onClick={() => setValue(2)}
+                    className={classes.learnMoreBtn}
+                    variant="outlined"
+                  >
                     <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                     <ButtonArrow width={15} height={15} fill="red" />
                   </Button>

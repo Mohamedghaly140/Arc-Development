@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Typography, Grid, Button, Container } from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 
@@ -35,7 +36,8 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const CallToAction = () => {
+const CallToAction = props => {
+  const { setValue } = props;
   const classes = useStyles();
 
   return (
@@ -55,13 +57,25 @@ const CallToAction = () => {
               <Typography variant="subtitle2" gutterBottom>
                 Take advantage of 21<sup>st</sup> Century
               </Typography>
-              <Button className={classes.learnMoreBtn} variant="outlined">
+              <Button
+                component={Link}
+                to="/revolution"
+                onClick={() => setValue(2)}
+                className={classes.learnMoreBtn}
+                variant="outlined"
+              >
                 <span style={{ marginRight: 10 }}>Learn More</span>{' '}
                 <ButtonArrow width={15} height={15} fill="red" />
               </Button>
             </Grid>
             <Grid item>
-              <Button className={classes.estimateBtn} variant="contained">
+              <Button
+                component={Link}
+                to="/estimate"
+                onClick={() => setValue(5)}
+                className={classes.estimateBtn}
+                variant="contained"
+              >
                 Free Estimate
               </Button>
             </Grid>
