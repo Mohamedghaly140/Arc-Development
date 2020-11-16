@@ -226,7 +226,7 @@ const Footer = props => {
           component={'a'}
           href="https://www.facebook.com/mohamed.ghaly.6/"
           target="_blank"
-          rel="noopener noreferer"
+          rel="noopener noreferrer"
         >
           <img alt="facebook" src={facebook} className={classes.icons} />
         </Grid>
@@ -235,7 +235,7 @@ const Footer = props => {
           component={'a'}
           href="https://twitter.com/Mohamedghaly140?fbclid=IwAR0lkzFrZGajnkFZA_v8bGha84BnTR-u7HYwFrUpJ4HLUaNRCtfTmsjZS84"
           target="_blank"
-          rel="noopener noreferer"
+          rel="noopener noreferrer"
         >
           <img alt="twitter" src={twitter} className={classes.icons} />
         </Grid>
@@ -244,7 +244,7 @@ const Footer = props => {
           component={'a'}
           href="https://www.instagram.com/Mohamedghaly140/?fbclid=IwAR2N1di1kLseR3ZbOhykh6El575ZfuMeF67P_h4McVh9Z72YMAaTuIWNUvs"
           target="_blank"
-          rel="noopener noreferer"
+          rel="noopener noreferrer"
         >
           <img alt="instagram" src={instagram} className={classes.icons} />
         </Grid>
