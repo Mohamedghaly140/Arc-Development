@@ -1,40 +1,40 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import { makeStyles, useTheme } from "@material-ui/core/styles";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 import {
 	Container,
 	Grid,
 	Button,
 	Typography,
 	useMediaQuery,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-import ButtonArrow from "../ButtonArrow/ButtonArrow";
+import ButtonArrow from '../ButtonArrow/ButtonArrow';
 
-import customSoftwareIcon from "../../../assets/Custom Software Icon.svg";
-import mobileAppsIcon from "../../../assets/mobileIcon.svg";
-import websiteIcon from "../../../assets/websiteIcon.svg";
+import customSoftwareIcon from '../../../assets/Custom Software Icon.svg';
+import mobileAppsIcon from '../../../assets/mobileIcon.svg';
+import websiteIcon from '../../../assets/websiteIcon.svg';
 
 const useStyles = makeStyles(theme => ({
 	servicesContainer: {
-		marginTop: "1.5em",
-		marginBottom: "1.5em",
+		marginTop: '1.5em',
+		marginBottom: '1.5em',
 	},
 	servicesBlockItem: {
-		marginTop: "1.5em",
-		marginBottom: "1.5em",
+		marginTop: '1.5em',
+		marginBottom: '1.5em',
 	},
 	specialText: {
 		color: theme.palette.common.orange,
-		fontFamily: "Pacifico",
+		fontFamily: 'Pacifico',
 	},
 	learnMoreBtn: {
 		...theme.typography.learnButton,
-		fontSize: "0.8rem",
+		fontSize: '0.8rem',
 		height: 35,
 	},
 	title: {
-		borderBottom: "1px solid #CCC",
+		borderBottom: '1px solid #CCC',
 	},
 }));
 
@@ -43,8 +43,8 @@ const Services = props => {
 
 	const classes = useStyles();
 	const theme = useTheme();
-	const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-	const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+	const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
 	return (
 		<Grid container direction="column" className={classes.servicesContainer}>
@@ -61,11 +61,11 @@ const Services = props => {
 						container
 						direction="row"
 						spacing={2}
-						justify={matchesSM ? "center" : "flex-end"}
+						justify={matchesSM ? 'center' : 'flex-end'}
 						alignItems="center"
-						style={{ textAlign: matchesXS && "center" }}
+						style={{ textAlign: matchesXS && 'center' }}
 					>
-						<Grid item>
+						<Grid item style={{ width: !matchesXS && '35em' }}>
 							<Typography variant="h4" gutterBottom>
 								iOS/Android App Development
 							</Typography>
@@ -74,7 +74,7 @@ const Services = props => {
 							</Typography>
 							<Typography variant="subtitle1" gutterBottom>
 								Integrate your web experience or create stand alone app with
-								{matchesXS ? "" : <br />}
+								{matchesXS ? '' : <br />}
 								either mobile platform.
 							</Typography>
 							<Button
@@ -87,12 +87,16 @@ const Services = props => {
 								className={classes.learnMoreBtn}
 								variant="outlined"
 							>
-								<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+								<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 								<ButtonArrow width={15} height={15} fill="red" />
 							</Button>
 						</Grid>
 						<Grid item>
-							<img src={mobileAppsIcon} alt="Mobile Apps Development" />
+							<img
+								src={mobileAppsIcon}
+								alt="Mobile Apps Development"
+								width="250em"
+							/>
 						</Grid>
 					</Grid>
 				</Container>
@@ -104,9 +108,9 @@ const Services = props => {
 						container
 						direction="row"
 						spacing={2}
-						justify={matchesSM && "center"}
+						justify={matchesSM && 'center'}
 						alignItems="center"
-						style={{ textAlign: matchesXS && "center" }}
+						style={{ textAlign: matchesXS && 'center' }}
 					>
 						<Grid item>
 							<Typography variant="h4" gutterBottom>
@@ -116,7 +120,7 @@ const Services = props => {
 								Save Energy. Save Time. Save Money.
 							</Typography>
 							<Typography variant="subtitle1" gutterBottom>
-								Complete digital solution, from investigation to{" "}
+								Complete digital solution, from investigation to{' '}
 								<span className={classes.specialText}>celebration</span>
 							</Typography>
 							<Button
@@ -129,7 +133,7 @@ const Services = props => {
 								className={classes.learnMoreBtn}
 								variant="outlined"
 							>
-								<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+								<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 								<ButtonArrow width={15} height={15} fill="red" />
 							</Button>
 						</Grid>
@@ -146,11 +150,11 @@ const Services = props => {
 						container
 						direction="row"
 						spacing={2}
-						justify={matchesSM ? "center" : "flex-end"}
+						justify={matchesSM ? 'center' : 'flex-end'}
 						alignItems="center"
-						style={{ textAlign: matchesXS && "center" }}
+						style={{ textAlign: matchesXS && 'center' }}
 					>
-						<Grid item>
+						<Grid item style={{ width: !matchesXS && '35em' }}>
 							<Typography variant="h4" gutterBottom>
 								Website Development
 							</Typography>
@@ -170,12 +174,12 @@ const Services = props => {
 								className={classes.learnMoreBtn}
 								variant="outlined"
 							>
-								<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+								<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 								<ButtonArrow width={15} height={15} fill="red" />
 							</Button>
 						</Grid>
 						<Grid item>
-							<img src={websiteIcon} alt="Website Development" />
+							<img src={websiteIcon} alt="Website Development" width="250em" />
 						</Grid>
 					</Grid>
 				</Container>

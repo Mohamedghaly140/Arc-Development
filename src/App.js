@@ -1,12 +1,13 @@
-import React, { useState } from "react";
-import { ThemeProvider } from "@material-ui/styles";
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import React, { useState } from 'react';
+import { ThemeProvider } from '@material-ui/styles';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // Components Import
-import theme from "./components/ui/Themes/Theme";
-import Header from "./components/ui/Header/Header";
-import Footer from "./components/ui/Footer/Footer";
-import LandingPage from "./components/LandingPage/LandingPage";
-import Services from "./components/ui/Services/Services";
+import theme from './components/ui/Themes/Theme';
+import Header from './components/ui/Header/Header';
+import Footer from './components/ui/Footer/Footer';
+import LandingPage from './components/LandingPage/LandingPage';
+import Services from './components/ui/Services/Services';
+import CustomSoftware from './components/ui/CustomSoftware/CustomSoftware';
 
 function App() {
 	const [selectedIndex, setSelectedIndex] = useState(0);
@@ -44,7 +45,13 @@ function App() {
 					/>
 					<Route
 						path="/customsoftware"
-						component={() => <div>customsoftware</div>}
+						render={props => (
+							<CustomSoftware
+								{...props}
+								setValue={setValue}
+								setSelectedIndex={setSelectedIndex}
+							/>
+						)}
 					/>
 					<Route path="/mobileapps" component={() => <div>mobileapps</div>} />
 					<Route path="/websites" component={() => <div>websites</div>} />

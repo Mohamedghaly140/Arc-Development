@@ -1,54 +1,54 @@
-import React from "react";
-import Lottie from "react-lottie";
-import { Link } from "react-router-dom";
-import { makeStyles, useTheme } from "@material-ui/styles";
+import React from 'react';
+import Lottie from 'react-lottie';
+import { Link } from 'react-router-dom';
+import { makeStyles, useTheme } from '@material-ui/styles';
 import {
 	Grid,
 	Button,
 	Typography,
 	Container,
 	useMediaQuery,
-} from "@material-ui/core";
+} from '@material-ui/core';
 
-import animationData from "../../animations/landinganimation/data";
-import ButtonArrow from "../ui/ButtonArrow/ButtonArrow";
+import animationData from '../../animations/landinganimation/data';
+import ButtonArrow from '../ui/ButtonArrow/ButtonArrow';
 
-import customSoftwareIcon from "../../assets/Custom Software Icon.svg";
-import mobileAppsIcon from "../../assets/mobileIcon.svg";
-import websiteIcon from "../../assets/websiteIcon.svg";
-import infoBackground from "../../assets/infoBackground.svg";
+import customSoftwareIcon from '../../assets/Custom Software Icon.svg';
+import mobileAppsIcon from '../../assets/mobileIcon.svg';
+import websiteIcon from '../../assets/websiteIcon.svg';
+import infoBackground from '../../assets/infoBackground.svg';
 
 // Components
-import RevolutionBlock from "./RevolutionBlock/RevolutionBlock";
-import CallToAction from "../ui/CallToAction/CallToAction";
+import RevolutionBlock from './RevolutionBlock/RevolutionBlock';
+import CallToAction from '../ui/CallToAction/CallToAction';
 
 const useStyles = makeStyles(theme => ({
 	intro: {
-		paddingTop: "2em",
-		paddingBottom: "2em",
-		marginBottom: "14rem",
-		[theme.breakpoints.down("xs")]: {
-			paddingTop: "0.5em",
-			paddingBottom: "0.5em",
-			marginBottom: "0rem",
+		paddingTop: '2em',
+		paddingBottom: '2em',
+		marginBottom: '14rem',
+		[theme.breakpoints.down('xs')]: {
+			paddingTop: '0.5em',
+			paddingBottom: '0.5em',
+			marginBottom: '0rem',
 		},
 	},
 	title: {
-		[theme.breakpoints.down("md")]: {
-			fontSize: "2rem",
+		[theme.breakpoints.down('md')]: {
+			fontSize: '2rem',
 		},
-		[theme.breakpoints.down("xs")]: {
-			fontSize: "1.5rem",
+		[theme.breakpoints.down('xs')]: {
+			fontSize: '1.5rem',
 		},
 	},
 	animation: {
-		maxWidth: "50em",
-		minWidth: "21em",
-		[theme.breakpoints.down("xs")]: {
+		maxWidth: '50em',
+		minWidth: '21em',
+		[theme.breakpoints.down('xs')]: {
 			marginTop: 15,
 		},
-		[theme.breakpoints.down("sm")]: {
-			maxWidth: "30em",
+		[theme.breakpoints.down('sm')]: {
+			maxWidth: '30em',
 		},
 	},
 	estimateBtn: {
@@ -57,36 +57,36 @@ const useStyles = makeStyles(theme => ({
 		borderRadius: 50,
 		width: 145,
 		height: 45,
-		"&:hover": {
+		'&:hover': {
 			backgroundColor: theme.palette.secondary.light,
 		},
 	},
 	learnMoreBtnHero: {
 		...theme.typography.learnButton,
-		fontSize: "0.9rem",
+		fontSize: '0.9rem',
 		width: 145,
 		height: 45,
 	},
 	specialText: {
 		color: theme.palette.common.orange,
-		fontFamily: "Pacifico",
+		fontFamily: 'Pacifico',
 	},
 	learnMoreBtn: {
 		...theme.typography.learnButton,
-		fontSize: "0.8rem",
+		fontSize: '0.8rem',
 		height: 35,
 	},
 	servicesBlockItem: {
-		marginTop: "1.5em",
-		marginBottom: "1.5em",
+		marginTop: '1.5em',
+		marginBottom: '1.5em',
 	},
 	infoBackground: {
-		height: "80vh",
+		height: '80vh',
 		backgroundImage: `url(${infoBackground})`,
-		backgroundPosition: "center",
-		backgroundSize: "cover",
-		backgroundAttachment: "fixed",
-		backgroundRepeat: "no-repeat",
+		backgroundPosition: 'center',
+		backgroundSize: 'cover',
+		backgroundAttachment: 'fixed',
+		backgroundRepeat: 'no-repeat',
 	},
 }));
 
@@ -94,15 +94,15 @@ const LandingPage = props => {
 	const { setValue, setSelectedIndex } = props;
 	const classes = useStyles();
 	const theme = useTheme();
-	const matchesSM = useMediaQuery(theme.breakpoints.down("sm"));
-	const matchesXS = useMediaQuery(theme.breakpoints.down("xs"));
+	const matchesSM = useMediaQuery(theme.breakpoints.down('sm'));
+	const matchesXS = useMediaQuery(theme.breakpoints.down('xs'));
 
 	const defaultOptions = {
 		loop: true,
 		autoplay: true,
 		animationData: animationData,
 		rendererSettings: {
-			preserveAspectRatio: "xMidYMid slice",
+			preserveAspectRatio: 'xMidYMid slice',
 		},
 	};
 
@@ -117,7 +117,7 @@ const LandingPage = props => {
 					className={classes.intro}
 				>
 					{/* ========== Hero Block ========== */}
-					<Grid item sm style={{ margin: "5px auto" }}>
+					<Grid item sm style={{ margin: '5px auto' }}>
 						<Typography
 							variant="h2"
 							align="center"
@@ -147,14 +147,14 @@ const LandingPage = props => {
 									className={classes.learnMoreBtnHero}
 									variant="outlined"
 								>
-									<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+									<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 									<ButtonArrow width={15} height={15} fill="red" />
 								</Button>
 							</Grid>
 						</Grid>
 					</Grid>
 					<Grid item sm className={classes.animation}>
-						<Lottie options={defaultOptions} height={"100%"} width={"100%"} />
+						<Lottie options={defaultOptions} height={'100%'} width={'100%'} />
 					</Grid>
 				</Grid>
 			</Grid>
@@ -165,7 +165,7 @@ const LandingPage = props => {
 						container
 						direction="row"
 						spacing={2}
-						justify={matchesSM && "center"}
+						justify={matchesSM && 'center'}
 						alignItems="center"
 					>
 						<Grid item>
@@ -176,7 +176,7 @@ const LandingPage = props => {
 								Save Energy. Save Time. Save Money.
 							</Typography>
 							<Typography variant="subtitle1" gutterBottom>
-								Complete digital solution, from investigation to{" "}
+								Complete digital solution, from investigation to{' '}
 								<span className={classes.specialText}>celebration</span>
 							</Typography>
 							<Button
@@ -189,7 +189,7 @@ const LandingPage = props => {
 								className={classes.learnMoreBtn}
 								variant="outlined"
 							>
-								<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+								<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 								<ButtonArrow width={15} height={15} fill="red" />
 							</Button>
 						</Grid>
@@ -206,7 +206,7 @@ const LandingPage = props => {
 						container
 						direction="row"
 						spacing={2}
-						justify={matchesSM ? "center" : "flex-end"}
+						justify={matchesSM ? 'center' : 'flex-end'}
 						alignItems="center"
 					>
 						<Grid item>
@@ -218,7 +218,7 @@ const LandingPage = props => {
 							</Typography>
 							<Typography variant="subtitle1" gutterBottom>
 								Integrate your web experience or create stand alone app with
-								{matchesXS ? "" : <br />}
+								{matchesXS ? '' : <br />}
 								either mobile platform.
 							</Typography>
 							<Button
@@ -231,7 +231,7 @@ const LandingPage = props => {
 								className={classes.learnMoreBtn}
 								variant="outlined"
 							>
-								<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+								<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 								<ButtonArrow width={15} height={15} fill="red" />
 							</Button>
 						</Grid>
@@ -248,7 +248,7 @@ const LandingPage = props => {
 						container
 						direction="row"
 						spacing={2}
-						justify={matchesSM && "center"}
+						justify={matchesSM && 'center'}
 						alignItems="center"
 					>
 						<Grid item>
@@ -271,7 +271,7 @@ const LandingPage = props => {
 								className={classes.learnMoreBtn}
 								variant="outlined"
 							>
-								<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+								<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 								<ButtonArrow width={15} height={15} fill="red" />
 							</Button>
 						</Grid>
@@ -285,23 +285,23 @@ const LandingPage = props => {
 			<RevolutionBlock setValue={setValue} />
 			{/* ========== The Information Block ========== */}
 			<Grid item className={classes.infoBackground}>
-				<Container style={{ height: "100%" }}>
+				<Container style={{ height: '100%' }}>
 					<Grid
 						container
 						direction="row"
-						justify={matchesXS ? "center" : "space-between"}
+						justify={matchesXS ? 'center' : 'space-between'}
 						alignItems="center"
-						style={{ height: "100%" }}
+						style={{ height: '100%' }}
 					>
 						<Grid item>
 							<Grid
 								container
 								direction="column"
 								justify="center"
-								alignItems={matchesXS ? "center" : "flex-start"}
+								alignItems={matchesXS ? 'center' : 'flex-start'}
 							>
 								<Grid item>
-									<Typography variant="h2" style={{ color: "#fff" }}>
+									<Typography variant="h2" style={{ color: '#fff' }}>
 										About Us
 									</Typography>
 								</Grid>
@@ -318,7 +318,7 @@ const LandingPage = props => {
 										className={classes.learnMoreBtn}
 										variant="outlined"
 									>
-										<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+										<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 										<ButtonArrow width={15} height={15} fill="red" />
 									</Button>
 								</Grid>
@@ -329,10 +329,10 @@ const LandingPage = props => {
 								container
 								direction="column"
 								justify="center"
-								alignItems={matchesXS ? "center" : "flex-end"}
+								alignItems={matchesXS ? 'center' : 'flex-end'}
 							>
 								<Grid item>
-									<Typography variant="h2" style={{ color: "#fff" }}>
+									<Typography variant="h2" style={{ color: '#fff' }}>
 										Contact Us
 									</Typography>
 								</Grid>
@@ -349,7 +349,7 @@ const LandingPage = props => {
 										className={classes.learnMoreBtn}
 										variant="outlined"
 									>
-										<span style={{ marginRight: 10 }}>Learn More</span>{" "}
+										<span style={{ marginRight: 10 }}>Learn More</span>{' '}
 										<ButtonArrow width={15} height={15} fill="red" />
 									</Button>
 								</Grid>
